@@ -1,6 +1,8 @@
 package es.ecommerce.Service;
 
+import es.ecommerce.Entity.Cliente;
 import es.ecommerce.Entity.Pedido;
+import es.ecommerce.Entity.Producto;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -15,7 +17,7 @@ public interface PedidoService {
 
     // Aquí tengo un problema ya que idProducto y cantidadProducto son de la tabla
     // producto y son listas (no se como implementar eso por ahora).
-    Pedido editarPedido(Long idPedido, Long idCliente, Long idProducto, Integer cantidadProducto,
+    Pedido editarPedido(Long idPedido, Cliente cliente, Producto producto, Integer cantidadProducto,
             LocalDate fechaPedido);
 
     void eliminarPedidoPorId(Long id);
