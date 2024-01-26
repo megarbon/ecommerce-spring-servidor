@@ -2,17 +2,18 @@ package es.ecommerce.Service;
 
 import es.ecommerce.Entity.HistorialPedidos;
 
+import java.time.LocalDate;
 import java.util.List;
 
-public interface HistorialService {
+public interface HistorialPedidosService {
 
-    List<Historial> listarHistoriales();
+    List<HistorialPedidos> listarHistoriales();
 
-    Historial insertarHistorial(Historial historial);
+    HistorialPedidos insertarHistorial(HistorialPedidos historial);
 
-    Historial buscarHistorialPorId(Long id);
+    HistorialPedidos buscarHistorialPorId(Long id);
 
-    Historial editarHistorial(Long id, Long idPedido, Long idCliente, LocalDate fechaPedido);
+    HistorialPedidos editarHistorial(Long id, Long idPedido, Long idCliente, LocalDate fechaPedido);
 
     void eliminarHistorialPorId(Long id);
 }

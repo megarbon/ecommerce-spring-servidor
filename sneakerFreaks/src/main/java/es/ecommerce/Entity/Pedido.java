@@ -30,6 +30,14 @@ public class Pedido {
         return idPedidoProducto;
     }
 
+    public Pedido(Long idPedidoProducto, Cliente cliente, Producto producto, Integer cantidad, LocalDate fechaPedido) {
+        this.idPedidoProducto = idPedidoProducto;
+        this.cliente = cliente;
+        this.producto = producto;
+        this.cantidad = cantidad;
+        this.fechaPedido = fechaPedido;
+    }
+
     public void setIdPedidoProducto(Long idPedidoProducto) {
         this.idPedidoProducto = idPedidoProducto;
     }
@@ -39,6 +47,9 @@ public class Pedido {
     }
 
     public void setCliente(Cliente cliente) {
+        if (cliente != null) {
+            cliente.getPedidosProductos().add(this);
+        }
         this.cliente = cliente;
     }
 

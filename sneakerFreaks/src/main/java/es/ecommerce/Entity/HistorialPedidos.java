@@ -24,6 +24,13 @@ public class HistorialPedidos {
 
     // Constructores, getters y setters
 
+    public HistorialPedidos(Long idHistorial, Pedido pedidoProducto, Cliente cliente, LocalDate fechaPedido) {
+        this.idHistorial = idHistorial;
+        this.pedidoProducto = pedidoProducto;
+        this.cliente = cliente;
+        this.fechaPedido = fechaPedido;
+    }
+
     public Long getIdHistorial() {
         return idHistorial;
     }

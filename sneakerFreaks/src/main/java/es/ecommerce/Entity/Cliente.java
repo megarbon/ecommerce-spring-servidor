@@ -21,6 +21,18 @@ public class Cliente {
     private String numeroTarjeta;
     private String fotoPerfilURL;
 
+    public Cliente(Long idCliente, String nombre, String correoElectronico, String contrasena, String apellidos,
+            String direccion, String codigoPostal, String numeroTarjeta, String fotoPerfilURL) {
+        this.idCliente = idCliente;
+        this.nombre = nombre;
+        this.correoElectronico = correoElectronico;
+        this.contrasena = contrasena;
+        this.apellidos = apellidos;
+        this.direccion = direccion;
+        this.codigoPostal = codigoPostal;
+        this.numeroTarjeta = numeroTarjeta;
+        this.fotoPerfilURL = fotoPerfilURL;
+    }
 
     public Long getIdCliente() {
         return idCliente;
