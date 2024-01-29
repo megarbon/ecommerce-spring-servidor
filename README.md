@@ -31,6 +31,8 @@ mvn spring-boot:run
 
 4. **Acceso a la Aplicación**: Una vez que la aplicación esté en ejecución, acceder a `http://localhost:8080` para explorar el ecommerce.
 
+5. **Rest Client**: Necesitarás hacer uso de un cliente Rest como puede ser Postman para poder acceder a los diferentes endpoints de la API. Desde el navegador también se puede pero es más incómodo.
+
 ## Contribuciones
 
 Las contribuciones son bienvenidas. Si encuentras errores, mejoras o nuevas características que podrían agregarse, no dudes en abrir un problema o enviar una solicitud de extracción.
