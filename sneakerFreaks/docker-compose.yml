@@ -1,0 +1,31 @@
+version: "3.7"
+services:
+  api_service:
+    build: .
+    restart: always
+    ports:
+      - $SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT
+    networks:
+      - springapimysql-net
+    environment:
+      - spring.datasource.url=jdbc:mysql://mysqldb:3306/e-commerce-esbd?allowPublicKeyRetrieval=true    
+    depends_on:
+      - mysqldb
+    
+    volumes:
+      - .m2:/root/.m2
+      
+  mysqldb:
+    image: "mysql:8.0"
+    restart: always
+    ports:
+      - 3309:3306
+    networks:
+      - springapimysql-net  
+    environment:
+      MYSQL_DATABASE: basics
+      MYSQL_USER: ecom_user
+      MYSQL_PASSWORD: 
+      MYSQL_ROOT_PASSWORD: pass
+networks:
+  springapimysql-net:

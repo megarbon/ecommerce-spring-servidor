@@ -35,7 +35,7 @@ public class HistorialPedidosServiceIMPL implements HistorialPedidosService {
     public HistorialPedidos editarHistorial(Long id, Long idPedido, Long idCliente, LocalDate fechaPedido) {
         HistorialPedidos historial = historialRepository.findById(id).orElse(null);
         if (historial != null) {
-            historial.setIdPedido(idPedido);
+            historial.setIdPedidoProducto(idPedido);
             historial.setIdCliente(idCliente);
             historial.setFechaPedido(fechaPedido);
             return historialRepository.save(historial);

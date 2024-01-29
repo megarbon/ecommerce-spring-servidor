@@ -35,12 +35,12 @@ public class PedidoServiceIMPL implements PedidoService {
     }
 
     @Override
-    public Pedido editarPedido(Long idPedido, Cliente cliente, Producto producto, Integer cantidad,
+    public Pedido editarPedido(Long idPedido, Long idCliente, Producto producto, Integer cantidad,
             LocalDate fechaPedido) {
         Pedido pedido = pedidoRepository.findById(idPedido).orElse(null);
         if (pedido != null) {
             pedido.setIdPedidoProducto(idPedido);
-            pedido.setCliente(cliente);
+            pedido.setCliente(idCliente);
             pedido.setProducto(producto);
             pedido.setCantidad(cantidad);
             pedido.setFechaPedido(fechaPedido);

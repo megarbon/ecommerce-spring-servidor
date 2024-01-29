@@ -17,7 +17,7 @@ public interface PedidoService {
 
     // Aquí tengo un problema ya que idProducto y cantidadProducto son de la tabla
     // producto y son listas (no se como implementar eso por ahora).
-    Pedido editarPedido(Long idPedido, Cliente cliente, Producto producto, Integer cantidadProducto,
+    Pedido editarPedido(Long idPedido, Long idCliente, Producto producto, Integer cantidadProducto,
             LocalDate fechaPedido);
 
     void eliminarPedidoPorId(Long id);

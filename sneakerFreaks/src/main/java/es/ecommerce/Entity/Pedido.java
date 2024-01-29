@@ -30,9 +30,9 @@ public class Pedido {
         return idPedidoProducto;
     }
 
-    public Pedido(Long idPedidoProducto, Cliente cliente, Producto producto, Integer cantidad, LocalDate fechaPedido) {
+    public Pedido(Long idPedidoProducto, Long idCliente, Producto producto, Integer cantidad, LocalDate fechaPedido) {
         this.idPedidoProducto = idPedidoProducto;
-        this.cliente = cliente;
+        this.cliente.setIdCliente(idCliente);;
         this.producto = producto;
         this.cantidad = cantidad;
         this.fechaPedido = fechaPedido;
@@ -46,11 +46,12 @@ public class Pedido {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
-        if (cliente != null) {
-            cliente.getPedidosProductos().add(this);
+    public void setCliente(Long idCliente) {
+        if (idCliente != null) {
+            cliente.setIdCliente(idCliente);
+        } else{
+            System.err.println("error al asociar un cliente a este pedido");
         }
-        this.cliente = cliente;
     }
 
     public Producto getProducto() {

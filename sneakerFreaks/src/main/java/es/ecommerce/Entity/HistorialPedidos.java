@@ -43,16 +43,16 @@ public class HistorialPedidos {
         return pedidoProducto;
     }
 
-    public void setPedidoProducto(Pedido pedidoProducto) {
-        this.pedidoProducto = pedidoProducto;
+    public void setIdPedidoProducto(Long idPedidoProducto) {
+        pedidoProducto.setIdPedidoProducto(idPedidoProducto) ;
     }
 
     public Cliente getCliente() {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public void setIdCliente(Long idCliente) {
+        cliente.setIdCliente(idCliente);;
     }
 
     public LocalDate getFechaPedido() {
