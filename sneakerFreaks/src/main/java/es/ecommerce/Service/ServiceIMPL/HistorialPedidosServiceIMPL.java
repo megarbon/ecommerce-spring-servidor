@@ -1,8 +1,9 @@
-package es.ecommerce.Service.ServiceIMPL;
+package es.ecommerce.service.serviceIMPL;
 
-import es.ecommerce.Entity.HistorialPedidos;
-import es.ecommerce.Repository.HistorialPedidosRepository;
-import es.ecommerce.Service.HistorialPedidosService;
+import es.ecommerce.entity.HistorialPedidos;
+import es.ecommerce.repository.HistorialPedidosRepository;
+import es.ecommerce.service.HistorialPedidosService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

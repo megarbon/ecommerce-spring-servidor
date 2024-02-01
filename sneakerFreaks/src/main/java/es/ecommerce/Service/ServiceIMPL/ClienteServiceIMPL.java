@@ -1,8 +1,9 @@
-package es.ecommerce.Service.ServiceIMPL;
+package es.ecommerce.service.serviceIMPL;
 
-import es.ecommerce.Entity.Cliente;
-import es.ecommerce.Repository.ClienteRepository;
-import es.ecommerce.Service.ClienteService;
+import es.ecommerce.entity.Cliente;
+import es.ecommerce.repository.ClienteRepository;
+import es.ecommerce.service.ClienteService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

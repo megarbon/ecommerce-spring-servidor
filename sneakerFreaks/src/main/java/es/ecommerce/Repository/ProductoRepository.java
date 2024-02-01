@@ -1,7 +1,8 @@
-package es.ecommerce.Repository;
+package es.ecommerce.repository;
 
 import org.springframework.data.repository.CrudRepository;
-import es.ecommerce.Entity.Producto;
+
+import es.ecommerce.entity.Producto;
 
 public interface ProductoRepository extends CrudRepository<Producto, Long> {
 

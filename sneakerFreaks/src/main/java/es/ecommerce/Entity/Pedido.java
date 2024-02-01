@@ -1,4 +1,4 @@
-package es.ecommerce.Entity;
+package es.ecommerce.entity;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

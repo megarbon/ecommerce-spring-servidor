@@ -1,9 +1,9 @@
-package es.ecommerce.Service;
-
-import es.ecommerce.Entity.HistorialPedidos;
+package es.ecommerce.service;
 
 import java.time.LocalDate;
 import java.util.List;
+
+import es.ecommerce.entity.HistorialPedidos;
 
 public interface HistorialPedidosService {
 

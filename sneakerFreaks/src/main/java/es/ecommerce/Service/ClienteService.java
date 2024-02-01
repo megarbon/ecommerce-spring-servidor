@@ -1,8 +1,8 @@
-package es.ecommerce.Service;
-
-import es.ecommerce.Entity.Cliente;
+package es.ecommerce.service;
 
 import java.util.List;
+
+import es.ecommerce.entity.Cliente;
 
 public interface ClienteService {
 

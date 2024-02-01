@@ -1,8 +1,8 @@
-package es.ecommerce.Service;
-
-import es.ecommerce.Entity.Producto;
+package es.ecommerce.service;
 
 import java.util.List;
+
+import es.ecommerce.entity.Producto;
 
 public interface ProductoService {
 

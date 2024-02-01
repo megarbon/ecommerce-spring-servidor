@@ -1,10 +1,11 @@
-package es.ecommerce.Service.ServiceIMPL;
+package es.ecommerce.service.serviceIMPL;
 
-import es.ecommerce.Entity.Cliente;
-import es.ecommerce.Entity.Pedido;
-import es.ecommerce.Entity.Producto;
-import es.ecommerce.Repository.PedidoRepository;
-import es.ecommerce.Service.PedidoService;
+import es.ecommerce.entity.Cliente;
+import es.ecommerce.entity.Pedido;
+import es.ecommerce.entity.Producto;
+import es.ecommerce.repository.PedidoRepository;
+import es.ecommerce.service.PedidoService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
