@@ -1,5 +1,6 @@
 package es.ecommerce.Entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -10,12 +11,22 @@ public class Producto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_producto")
     private Long idProducto;
 
+    @Column(name = "nombre")
     private String nombre;
+
+    @Column(name = "descripcion")
     private String descripcion;
+
+    @Column(name = "precio")
     private Double precio;
+
+    @Column(name = "stock")
     private Integer stock;
+
+    @Column(name = "image_url")
     private String imageUrl;
 
     // Constructores, getters y setters

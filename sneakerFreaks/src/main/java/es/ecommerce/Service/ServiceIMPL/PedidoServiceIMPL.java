@@ -20,7 +20,7 @@ public class PedidoServiceIMPL implements PedidoService {
     private PedidoRepository pedidoRepository;
 
     @Override
-    public List<Pedido> listarPedidoss() {
+    public List<Pedido> listarPedidos() {
         return (List<Pedido>) pedidoRepository.findAll();
     }
 
@@ -35,23 +35,22 @@ public class PedidoServiceIMPL implements PedidoService {
     }
 
     @Override
-    public Pedido editarPedido(Long idPedido, Long idCliente, Producto producto, Integer cantidad,
+    public void eliminarPedidoPorId(Long id) {
+        pedidoRepository.deleteById(id);
+    }
+
+    @Override
+    public Pedido editarPedido(Long idPedido, Cliente cliente, List<Producto> productos, Integer cantidad,
             LocalDate fechaPedido) {
         Pedido pedido = pedidoRepository.findById(idPedido).orElse(null);
         if (pedido != null) {
-            pedido.setIdPedidoProducto(idPedido);
-            pedido.setCliente(idCliente);
-            pedido.setProducto(producto);
+            pedido.setCliente(cliente);
+            pedido.setlistaProductos(productos);
             pedido.setCantidad(cantidad);
             pedido.setFechaPedido(fechaPedido);
             return pedidoRepository.save(pedido);
         }
         return null;
-    }
-
-    @Override
-    public void eliminarPedidoPorId(Long id) {
-        pedidoRepository.deleteById(id);
     }
 
 }

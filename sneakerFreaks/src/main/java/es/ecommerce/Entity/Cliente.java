@@ -8,21 +8,36 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table (name = "cliente")
+@Table(name = "cliente")
 public class Cliente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "nombre")
+    @Column(name = "idCliente")
     private Long idCliente;
 
+    @Column(name = "nombre")
     private String nombre;
+
+    @Column(name = "correo_electronico")
     private String correoElectronico;
+
+    @Column(name = "contrasena")
     private String contrasena;
+
+    @Column(name = "apellidos")
     private String apellidos;
+
+    @Column(name = "direccion")
     private String direccion;
+
+    @Column(name = "codigo_postal")
     private String codigoPostal;
+
+    @Column(name = "numero_tarjeta")
     private String numeroTarjeta;
+
+    @Column(name = "foto_perfil_url")
     private String fotoPerfilURL;
 
     public Cliente(Long idCliente, String nombre, String correoElectronico, String contrasena, String apellidos,

@@ -1,9 +1,11 @@
 package es.ecommerce.Entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import java.time.LocalDate;
 
@@ -12,14 +14,18 @@ public class HistorialPedidos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_historial")
     private Long idHistorial;
 
     @ManyToOne
+    @JoinColumn(name = "id_pedido_producto")
     private Pedido pedidoProducto;
 
     @ManyToOne
+    @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 
+    @Column(name = "fecha_pedido")
     private LocalDate fechaPedido;
 
     // Constructores, getters y setters
@@ -43,8 +49,8 @@ public class HistorialPedidos {
         return pedidoProducto;
     }
 
-    public void setIdPedidoProducto(Long idPedidoProducto) {
-        pedidoProducto.setIdPedidoProducto(idPedidoProducto) ;
+    public void setIdPedido(Long idPedido) {
+        pedidoProducto.setIdPedido(idPedido);
     }
 
     public Cliente getCliente() {
@@ -52,7 +58,8 @@ public class HistorialPedidos {
     }
 
     public void setIdCliente(Long idCliente) {
-        cliente.setIdCliente(idCliente);;
+        cliente.setIdCliente(idCliente);
+        ;
     }
 
     public LocalDate getFechaPedido() {

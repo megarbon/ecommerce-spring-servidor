@@ -1,73 +1,74 @@
 package es.ecommerce.Entity;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "pedido")
 public class Pedido {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idPedidoProducto;
+    @Column(name = "id_pedido")
+    private Long idPedido;
 
     @ManyToOne
+    @JoinColumn(name = "id_cliente")
     private Cliente cliente;
 
-    @ManyToOne
-    private Producto producto;
+    @OneToMany(mappedBy = "id_pedido_producto", cascade = CascadeType.ALL)
+    private List<Producto> listaProductos = new ArrayList<>();
 
-    private Integer cantidad;
+    @Column(name = "fecha_pedido")
     private LocalDate fechaPedido;
+
+    @Column(name = "cantidad")
+    private int cantidad;
 
     // Constructores, getters y setters
 
-    public Long getIdPedidoProducto() {
-        return idPedidoProducto;
+    public Long getIdPedido() {
+        return idPedido;
     }
 
-    public Pedido(Long idPedidoProducto, Long idCliente, Producto producto, Integer cantidad, LocalDate fechaPedido) {
-        this.idPedidoProducto = idPedidoProducto;
-        this.cliente.setIdCliente(idCliente);;
-        this.producto = producto;
-        this.cantidad = cantidad;
-        this.fechaPedido = fechaPedido;
-    }
-
-    public void setIdPedidoProducto(Long idPedidoProducto) {
-        this.idPedidoProducto = idPedidoProducto;
+    public void setIdPedido(Long idPedido) {
+        this.idPedido = idPedido;
     }
 
     public Cliente getCliente() {
         return cliente;
     }
 
-    public void setCliente(Long idCliente) {
-        if (idCliente != null) {
-            cliente.setIdCliente(idCliente);
-        } else{
-            System.err.println("error al asociar un cliente a este pedido");
-        }
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
-    public Producto getProducto() {
-        return producto;
+    public List<Producto> getlistaProductos() {
+        return listaProductos;
     }
 
-    public void setProducto(Producto producto) {
-        this.producto = producto;
+    public void setlistaProductos(List<Producto> listaProductos) {
+        this.listaProductos = listaProductos;
     }
 
-    public Integer getCantidad() {
-        return cantidad;
+    public void addProducto(Producto producto) {
+        this.listaProductos.add(producto);
     }
 
-    public void setCantidad(Integer cantidad) {
-        this.cantidad = cantidad;
+    public void removeProducto(Producto producto) {
+        this.listaProductos.remove(producto);
     }
 
     public LocalDate getFechaPedido() {
@@ -78,4 +79,11 @@ public class Pedido {
         this.fechaPedido = fechaPedido;
     }
 
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public int getCantidad() {
+        return this.cantidad;
+    }
 }

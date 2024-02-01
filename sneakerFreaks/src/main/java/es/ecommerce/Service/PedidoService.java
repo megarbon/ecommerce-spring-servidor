@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface PedidoService {
 
-    List<Pedido> listarPedidoss();
+    List<Pedido> listarPedidos();
 
     Pedido insertarPedido(Pedido pedido);
 
@@ -17,7 +17,7 @@ public interface PedidoService {
 
     // Aquí tengo un problema ya que idProducto y cantidadProducto son de la tabla
     // producto y son listas (no se como implementar eso por ahora).
-    Pedido editarPedido(Long idPedido, Long idCliente, Producto producto, Integer cantidadProducto,
+    Pedido editarPedido(Long idPedido, Cliente cliente, List<Producto> productos, Integer cantidadProducto,
             LocalDate fechaPedido);
 
     void eliminarPedidoPorId(Long id);
