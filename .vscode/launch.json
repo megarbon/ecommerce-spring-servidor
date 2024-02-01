@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SneakerFreaksApplication<sneakerFreaks>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "es.ecommerce.sneakerFreaks.SneakerFreaksApplication",
+            "projectName": "sneakerFreaks",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
