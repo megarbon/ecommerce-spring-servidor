@@ -12,7 +12,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 //Esta implementación no está completa o falta que se cuadre respecto a la entidad
-
 @Service
 public class PedidoServiceIMPL implements PedidoService {
 
@@ -52,5 +51,4 @@ public class PedidoServiceIMPL implements PedidoService {
         }
         return null;
     }
-
 }

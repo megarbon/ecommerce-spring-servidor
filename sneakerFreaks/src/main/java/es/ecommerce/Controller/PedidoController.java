@@ -15,13 +15,14 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/pedidos")
+@RequestMapping("/pedidos")
 public class PedidoController {
 
     @Autowired
     private PedidoServiceIMPL pedidoService;
 
     @GetMapping("/consultar")
+    @RequestMapping(value = "ConsultarDeportes", method = RequestMethod.GET)
     public ResponseEntity<List<Pedido>> consultarPedidos() {
         List<Pedido> listaPedidos = pedidoService.listarPedidos();
         return ResponseEntity.ok(listaPedidos);
@@ -67,5 +68,10 @@ public class PedidoController {
     public ResponseEntity<?> eliminarPedido(@PathVariable Long id) {
         pedidoService.eliminarPedidoPorId(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+
+    @GetMapping("/hola")
+    public ResponseEntity<String> holaMundo() {
+        return ResponseEntity.ok("¡Hola Mundo!");
     }
 }
