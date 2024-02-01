@@ -3,7 +3,6 @@ package es.ecommerce.Controller;
 import es.ecommerce.Entity.Cliente;
 import es.ecommerce.Entity.Pedido;
 import es.ecommerce.Entity.Producto;
-import es.ecommerce.Service.PedidoService;
 import es.ecommerce.Service.ServiceIMPL.PedidoServiceIMPL;
 
 import org.springframework.beans.factory.annotation.Autowired;
