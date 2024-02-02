@@ -2,8 +2,11 @@ package es.ecommerce.service;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import es.ecommerce.entity.Cliente;
 
+@Service
 public interface ClienteService {
 
     List<Cliente> listarClientes();

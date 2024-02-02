@@ -4,12 +4,16 @@ import es.ecommerce.entity.Cliente;
 import es.ecommerce.service.serviceIMPL.ClienteServiceIMPL;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Configuration
+@EnableAutoConfiguration
 @RestController
 @RequestMapping("/clientes")
 public class ClienteController {
