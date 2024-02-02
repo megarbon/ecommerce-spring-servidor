@@ -1,7 +1,7 @@
-package es.ecommerce.Controller;
+package es.ecommerce.controller;
 
-import es.ecommerce.Entity.Cliente;
-import es.ecommerce.Service.ServiceIMPL.ClienteServiceIMPL;
+import es.ecommerce.entity.Cliente;
+import es.ecommerce.service.serviceIMPL.ClienteServiceIMPL;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

@@ -1,9 +1,9 @@
-package es.ecommerce.Controller;
+package es.ecommerce.controller;
 
-import es.ecommerce.Entity.Cliente;
-import es.ecommerce.Entity.Pedido;
-import es.ecommerce.Entity.Producto;
-import es.ecommerce.Service.ServiceIMPL.PedidoServiceIMPL;
+import es.ecommerce.service.serviceIMPL.PedidoServiceIMPL;
+import es.ecommerce.entity.Cliente;
+import es.ecommerce.entity.Pedido;
+import es.ecommerce.entity.Producto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -48,6 +48,7 @@ public class PedidoController {
     public ResponseEntity<Pedido> modificarPedido(@PathVariable Long id, @RequestBody Map<String, Object> body) {
         try {
             Cliente cliente = (Cliente) body.get("cliente");
+            @SuppressWarnings("unchecked")
             List<Producto> productos = (List<Producto>) body.get("productos");
             Integer cantidad = (Integer) body.get("cantidad");
             LocalDate fechaPedido = LocalDate.parse((String) body.get("fechaPedido"));
