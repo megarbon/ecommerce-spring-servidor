@@ -69,4 +69,5 @@ public class ClienteController {
     public ResponseEntity<String> holaMundo() {
         return ResponseEntity.ok("¡Hola Mundo!");
     }
+
 }

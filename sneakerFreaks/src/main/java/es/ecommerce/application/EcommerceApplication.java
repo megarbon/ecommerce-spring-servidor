@@ -4,10 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
-import es.ecommerce.controller.ClienteController;
+import es.ecommerce.controller.SampleController;
 
 @SpringBootApplication
-@ComponentScan(basePackageClasses = ClienteController.class)
+@ComponentScan(basePackageClasses = SampleController.class)
+
 public class EcommerceApplication {
 
     public static void main(String[] args) {
