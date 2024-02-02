@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 public class SampleController {
 
-    @GetMapping
+    @GetMapping("hola")
     public String sayHello() {
         return "Esta mierda funciona, salu2.";
     }
