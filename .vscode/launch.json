@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "SneakerFreaksApplication",
+            "request": "launch",
+            "mainClass": "es.ecommerce.sneakerFreaks.SneakerFreaksApplication",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "Spring Boot-SneakerFreaksApplication<sneakerFreaks>",
             "request": "launch",
             "cwd": "${workspaceFolder}",
