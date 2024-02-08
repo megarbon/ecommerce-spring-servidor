@@ -1,6 +1,6 @@
 // Función para consultar y mostrar la lista de clientes en una tabla
-function consultarClientes() {
-  fetch("http://localhost:8080/clients/getAll")
+function consultarProductos() {
+  fetch("http://localhost:8080/products/getAll")
     .then((response) => response.json())
     .then((data) => {
       if (data.length > 0) {

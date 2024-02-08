@@ -26,6 +26,16 @@
             "projectName": "sneakerFreaks",
             "args": "",
             "envFile": "${workspaceFolder}/.env"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-SneakerFreaksApplication<es.ecommerce-sneakerFreaks>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "es.ecommerce.sneakerFreaks.SneakerFreaksApplication",
+            "projectName": "es.ecommerce-sneakerFreaks",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
         }
     ]
 }
