@@ -27,6 +27,17 @@ public class Order {
     @JoinColumn(name = "id_pedido_producto", referencedColumnName = "id_pedido_producto")
     private OrderProduct orderProduct;
 
+    /*
+     * este es el código que se debe agregar para la relación de uno a muchos es
+     * decir que un pedido puede tener muchos productos.
+     * No funciona aun porque en la base de datos no se ha creado la relación correctamente.
+     * 
+     * @OneToMany(mappedBy = "order")
+     * private List<OrderProduct> orderProducts;
+     * 
+     * 
+     */
+
     @Column(name = "fecha_pedido")
     private Date orderDate;
 

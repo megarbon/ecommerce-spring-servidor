@@ -18,10 +18,6 @@ public class OrderProduct {
     private Long orderProductId;
 
     @ManyToOne
-    @JoinColumn(name = "id_pedido")
-    private Order order;
-
-    @ManyToOne
     @JoinColumn(name = "id_producto")
     private Product product;
 
@@ -34,9 +30,9 @@ public class OrderProduct {
 
     }
 
-    public OrderProduct(Long orderProductId, Order order, Product product, int quantity) {
+    public OrderProduct(Long orderProductId, Product product, int quantity) {
         this.orderProductId = orderProductId;
-        this.order = order;
+
         this.product = product;
         this.quantity = quantity;
     }
@@ -47,14 +43,6 @@ public class OrderProduct {
 
     public void setOrderProductId(Long orderProductId) {
         this.orderProductId = orderProductId;
-    }
-
-    public Order getOrder() {
-        return order;
-    }
-
-    public void setOrder(Order order) {
-        this.order = order;
     }
 
     public Product getProduct() {
