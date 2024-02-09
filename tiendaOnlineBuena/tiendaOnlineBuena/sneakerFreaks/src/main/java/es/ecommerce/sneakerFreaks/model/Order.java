@@ -24,33 +24,26 @@ public class Order {
     private Client client;
 
     @ManyToOne
-    @JoinColumn(name = "id_producto", referencedColumnName = "id_producto")
-    private Product product;
-
-    @Column(name = "cantidad_producto")
-    private int quantity;
+    @JoinColumn(name = "id_pedido_producto", referencedColumnName = "id_pedido_producto")
+    private OrderProduct orderProduct;
 
     @Column(name = "fecha_pedido")
     private Date orderDate;
 
-    @Column(name = "id_pedido_producto")
-    private int orderProductId;
-
     // Constructors, getters, and setters
-
+    // Constructor vacío
     public Order() {
-
     }
 
-    public Order(Long orderId, Client client, Product product, int quantity, Date orderDate, int orderProductId) {
+    // Constructor con todos los atributos
+    public Order(Long orderId, Client client, OrderProduct orderProduct, Date orderDate) {
         this.orderId = orderId;
         this.client = client;
-        this.product = product;
-        this.quantity = quantity;
+        this.orderProduct = orderProduct;
         this.orderDate = orderDate;
-        this.orderProductId = orderProductId;
     }
 
+    // Getters y setters
     public Long getOrderId() {
         return orderId;
     }
@@ -67,20 +60,12 @@ public class Order {
         this.client = client;
     }
 
-    public Product getProduct() {
-        return product;
+    public OrderProduct getOrderProduct() {
+        return orderProduct;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setOrderProduct(OrderProduct orderProduct) {
+        this.orderProduct = orderProduct;
     }
 
     public Date getOrderDate() {
@@ -90,13 +75,4 @@ public class Order {
     public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
     }
-
-    public int getOrderProductId() {
-        return orderProductId;
-    }
-
-    public void setOrderProductId(int orderProductId) {
-        this.orderProductId = orderProductId;
-    }
-
 }

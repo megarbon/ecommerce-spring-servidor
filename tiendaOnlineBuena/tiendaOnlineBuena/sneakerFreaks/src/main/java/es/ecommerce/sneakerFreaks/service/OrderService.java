@@ -2,7 +2,6 @@ package es.ecommerce.sneakerFreaks.service;
 
 import es.ecommerce.sneakerFreaks.dao.OrderDAO;
 import es.ecommerce.sneakerFreaks.model.Order;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
 
@@ -10,7 +9,6 @@ import java.util.List;
 public class OrderService {
     private final OrderDAO orderDao;
 
-    @Autowired
     public OrderService(OrderDAO orderDao) {
         this.orderDao = orderDao;
     }

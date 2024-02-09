@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panel de Administración de Pedidos</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 p-4">
+    <div class="max-w-3xl mx-auto">
+      <!-- Título de la página -->
+      <h1 class="text-3xl font-semibold mb-8">
+        Panel de Administración de Pedidos
+      </h1>
+
+      <!-- Consultar Pedidos -->
+      <div class="mb-8 bg-white rounded-lg shadow p-4">
+        <h1 class="text-lg font-semibold mb-4">Consultar Pedidos</h1>
+        <div class="mb-4">
+          <button
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            onclick="consultarPedidos()"
+          >
+            Consultar Pedidos
+          </button>
+        </div>
+        <div class="overflow-x-auto" id="consultarPedidosResult"></div>
+      </div>
+
+      <!-- Formulario para crear un nuevo pedido -->
+      <div class="mb-8 bg-white rounded-lg shadow p-4">
+        <h2 class="text-xl font-semibold mb-4">Crear Nuevo Pedido</h2>
+        <form id="orderForm" class="space-y-4">
+          <!-- Cliente ID -->
+          <div>
+            <label
+              for="clienteId"
+              class="block text-sm font-semibold text-gray-600"
+              >ID del Cliente:</label
+            >
+            <input
+              type="number"
+              id="clienteId"
+              name="clienteId"
+              required
+              class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+            />
+          </div>
+          <!-- Total -->
+          <div>
+            <label for="total" class="block text-sm font-semibold text-gray-600"
+              >Total:</label
+            >
+            <input
+              type="number"
+              id="total"
+              name="total"
+              required
+              class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+            />
+          </div>
+          <!-- Estado -->
+          <div>
+            <label
+              for="estado"
+              class="block text-sm font-semibold text-gray-600"
+              >Estado:</label
+            >
+            <input
+              type="text"
+              id="estado"
+              name="estado"
+              required
+              class="w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
+            />
+          </div>
+          <!-- Botón de Crear Pedido -->
+          <div class="text-center">
+            <button
+              type="button"
+              onclick="crearPedido()"
+              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            >
+              Crear Pedido
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Formulario para recuperar un pedido por ID -->
+      <div class="mb-8 bg-white rounded-lg shadow p-4">
+        <h2 class="text-xl font-semibold mb-4">Recuperar Pedido por ID</h2>
+        <div class="flex items-center space-x-4">
+          <input
+            type="text"
+            id="idConsulta"
+            class="w-full px-3 py-2 border rounded"
+            placeholder="ID del Pedido"
+          />
+          <button
+            class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+            onclick="consultarPedidoPorId()"
+          >
+            Consultar Pedido
+          </button>
+        </div>
+        <div id="consultarPedidoPorIdResult" class="mt-4"></div>
+      </div>
+
+      <!-- Formulario para eliminar un pedido por ID -->
+      <div class="mb-8 bg-white rounded-lg shadow p-4">
+        <h2 class="text-xl font-semibold mb-4">Eliminar Pedido por ID</h2>
+        <div class="flex items-center space-x-4">
+          <input
+            type="text"
+            id="idEliminar"
+            class="w-full px-3 py-2 border rounded"
+            placeholder="ID del Pedido a Eliminar"
+          />
+          <button
+            class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+            onclick="eliminarPedido()"
+          >
+            Eliminar Pedido
+          </button>
+        </div>
+        <div id="eliminarPedidoResult" class="mt-4"></div>
+      </div>
+    </div>
+
+    <script src="tiendaServer.js"></script>
+  </body>
+</html>
