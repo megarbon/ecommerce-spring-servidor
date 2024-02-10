@@ -1,7 +1,7 @@
 package es.ecommerce.sneakerFreaks.controller;
 
 import es.ecommerce.sneakerFreaks.model.Order;
-import es.ecommerce.sneakerFreaks.model.OrderProduct;
+import es.ecommerce.sneakerFreaks.model.OrderDetail;
 import es.ecommerce.sneakerFreaks.service.OrderService;
 
 import org.hibernate.ObjectNotFoundException;
@@ -47,7 +47,7 @@ public class OrderController {
     @PostMapping("/create")
     public ResponseEntity<Order> createOrder(@RequestBody Order order) {
         try {
-            Order createdOrder = orderService.saveOrder(order);
+            Order createdOrder = orderService.createOrder(order);
             return ResponseEntity.status(HttpStatus.CREATED).body(createdOrder);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
@@ -66,9 +66,9 @@ public class OrderController {
 
     @PostMapping("/{orderId}/addItems")
     public ResponseEntity<Order> addItemsToOrder(@PathVariable("orderId") Long orderId,
-            @RequestBody List<OrderProduct> orderProducts) {
+            @RequestBody List<OrderDetail> orderProducts) {
         try {
-            Order updatedOrder = orderService.addItemsToOrder(orderId, orderProducts);
+            Order updatedOrder = orderService.addDetailsToOrder(orderId, orderProducts);
             return ResponseEntity.status(HttpStatus.OK).body(updatedOrder);
         } catch (ObjectNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
