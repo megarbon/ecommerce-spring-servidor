@@ -21,8 +21,8 @@ public class OrderDetail {
     private Long orderDetailId;
 
     // this is the id of a product in the order
-    @ManyToMaOne
-    @JoinColumn(name = "id_producto", columnDefinition = "Long")
+    @ManyToOne
+    @JoinColumn(name = "id_producto")
     private Product product;
 
     // this is the units of the product in the order
