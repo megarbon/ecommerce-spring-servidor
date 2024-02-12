@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador de compra</title>
+  </head>
+  <body>
+    <h1>Simulador de compra</h1>
+    <form id="purchaseForm">
+      <h2>Información del cliente</h2>
+      <label for="clientId">ID del cliente:</label>
+      <input type="number" id="clientId" required />
+      <label for="clientName">Nombre del cliente:</label>
+      <input type="text" id="clientName" required />
+      <label for="clientEmail">Correo electrónico del cliente:</label>
+      <input type="email" id="clientEmail" required />
+      <label for="clientAddress">Dirección del cliente:</label>
+      <input type="text" id="clientAddress" required />
+      <label for="clientPostalCode">Código postal del cliente:</label>
+      <input type="text" id="clientPostalCode" required />
+      <label for="clientCardNumber">Número de tarjeta del cliente:</label>
+      <input type="text" id="clientCardNumber" required />
+
+      <h2>Información del producto</h2>
+      <label for="productId">ID del producto:</label>
+      <input type="number" id="productId" required />
+      <label for="productName">Nombre del producto:</label>
+      <input type="text" id="productName" required />
+      <label for="productDescription">Descripción del producto:</label>
+      <input type="text" id="productDescription" required />
+      <label for="productPrice">Precio del producto:</label>
+      <input type="number" id="productPrice" step="0.01" required />
+      <label for="productStock">Stock del producto:</label>
+      <input type="number" id="productStock" required />
+      <label for="productImageUrl">URL de la imagen del producto:</label>
+      <input type="url" id="productImageUrl" required />
+
+      <label for="quantity">Cantidad:</label>
+      <input type="number" id="quantity" required />
+      <button type="submit">Comprar</button>
+    </form>
+
+    <script>
+      async function purchaseProduct(event) {
+        event.preventDefault();
+
+        const clientId = document.getElementById("clientId").value;
+        const clientName = document.getElementById("clientName").value;
+        const clientEmail = document.getElementById("clientEmail").value;
+        const clientAddress = document.getElementById("clientAddress").value;
+        const clientPostalCode =
+          document.getElementById("clientPostalCode").value;
+        const clientCardNumber =
+          document.getElementById("clientCardNumber").value;
+
+        const productId = document.getElementById("productId").value;
+        const productName = document.getElementById("productName").value;
+        const productDescription =
+          document.getElementById("productDescription").value;
+        const productPrice = document.getElementById("productPrice").value;
+        const productStock = document.getElementById("productStock").value;
+        const productImageUrl =
+          document.getElementById("productImageUrl").value;
+
+        const quantity = document.getElementById("quantity").value;
+
+        const clientData = {
+          idCliente: parseInt(clientId),
+          nombre: clientName,
+          correoElectronico: clientEmail,
+          direccion: clientAddress,
+          codigoPostal: clientPostalCode,
+          numeroTarjeta: clientCardNumber,
+        };
+
+        const productData = {
+          id: parseInt(productId),
+          name: productName,
+          description: productDescription,
+          price: parseFloat(productPrice),
+          stock: parseFloat(productStock),
+          image_url: productImageUrl,
+        };
+
+        const orderData = {
+          client: clientData,
+          orderDetails: [
+            {
+              product: productData,
+              units: parseInt(quantity),
+            },
+          ],
+          orderDate: new Date().toISOString(),
+        };
+
+        const response = await fetch("http://localhost:8080/orders/create", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(orderData),
+        });
+
+        if (response.ok) {
+          alert("Compra realizada con éxito!");
+        } else {
+          alert("Error al realizar la compra. Por favor, inténtalo de nuevo.");
+        }
+      }
+
+      window.onload = function () {
+        document
+          .getElementById("purchaseForm")
+          .addEventListener("submit", purchaseProduct);
+      };
+    </script>
+  </body>
+</html>
